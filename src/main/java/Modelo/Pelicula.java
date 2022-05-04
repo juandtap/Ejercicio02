@@ -14,11 +14,11 @@ public class Pelicula {
     private String nombre;
     private String produccion;
     private String director;
-    private String fechaEstreno;
+    private int fechaEstreno;
     private double duracion;
     private ArrayList<Personaje> listaPersonajes;
 
-    public Pelicula(String nombre, String produccion, String director, String fechaEstreno, double duracion) {
+    public Pelicula(String nombre, String produccion, String director, int fechaEstreno, double duracion) {
         this.nombre = nombre;
         this.produccion = produccion;
         this.director = director;
@@ -29,7 +29,7 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula: \nnombre=" + nombre + "\nproduccion=" + produccion + "\ndirector=" + director + "\nfechaEstreno=" + fechaEstreno + "\nduracion=" + duracion + "\nLista de personajes: \n" + listaPersonajes;
+        return "Pelicula: \nnombre: " + nombre + "\nproduccion: " + produccion + "\ndirector:" + director + "\nfechaEstreno:" + fechaEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
     }
     
     
@@ -58,11 +58,11 @@ public class Pelicula {
         this.director = director;
     }
 
-    public String getFechaEstreno() {
+    public int getFechaEstreno() {
         return fechaEstreno;
     }
 
-    public void setFechaEstreno(String fechaEstreno) {
+    public void setFechaEstreno(int fechaEstreno) {
         this.fechaEstreno = fechaEstreno;
     }
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class PeliculaService implements IPelicula{
     
-    ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
+    final ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
     
     @Override
     public Pelicula crearPelicula(Pelicula pelicula) {

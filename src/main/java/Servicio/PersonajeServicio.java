@@ -4,10 +4,37 @@
  */
 package Servicio;
 
+import Modelo.Personaje;
+import java.util.ArrayList;
+
 /**
  *
  * @author diego
  */
-public class PersonajeServicio {
+public class PersonajeServicio implements IPersonaje{
+    
+    ArrayList<Personaje> listaPersonajes = new ArrayList<>();
+
+    @Override
+    public Personaje crearPersonaje(String nombre, String genero, String actor, int edad, double estatura) {
+        Personaje personaje = new Personaje(nombre, genero, actor, edad, estatura);
+        listaPersonajes.add(personaje);
+        return personaje;
+    }
+
+    @Override
+    public ArrayList<Personaje> listarPersonajes() {
+        return listaPersonajes;
+    }
+
+    @Override
+    public Personaje actualizarPersonaje(String nombre, String genero, String actor, int edad, double estatura, int posicion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Personaje eliminarPeronaje(int posicion) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
