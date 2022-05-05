@@ -6,7 +6,7 @@
 package Vista;
 
 
-import java.io.IOException;
+
 
 
 /**
@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class PeliculaVista {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         
         
        

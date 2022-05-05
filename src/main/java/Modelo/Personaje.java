@@ -23,10 +23,13 @@ public class Personaje {
         this.estatura = estatura;
     }
 
+    
+    // Muestra la informacion de personaje 
     @Override
     public String toString() {
         return "Personaje: \nnombre: " + nombre + "\ngenero" + genero + "\nactor: " + actor + "\nedad: " + edad + "\nestatura: " + estatura + '}';
     }
+    
     
     
 

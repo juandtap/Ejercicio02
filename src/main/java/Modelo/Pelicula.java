@@ -18,21 +18,26 @@ public class Pelicula {
     private double duracion;
     private ArrayList<Personaje> listaPersonajes;
 
-    public Pelicula(String nombre, String estudio, String director, int fechaEstreno, double duracion) {
+    public Pelicula(String nombre, String estudio, String director, int anioEstreno, double duracion) {
         this.nombre = nombre;
         this.estudio = estudio;
         this.director = director;
-        this.anioEstreno = fechaEstreno;
+        this.anioEstreno = anioEstreno;
         this.duracion = duracion;
         this.listaPersonajes = new ArrayList<>();
     }
-
+    // Muestra la informacion de Pelicula
     @Override
     public String toString() {
         return "Pelicula: \nnombre: " + nombre + "\nestudio: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
     }
     
-    
+    //muestra la antiguedad de la pelicula basado en el anio actual
+    public String antiguedadPelicula(int anioActual){
+        int antiguedad = anioActual - this.anioEstreno;
+        String antiguedadPelicula = "La pellicula tiene "+antiguedad+ "anios de antiguedad";
+        return antiguedadPelicula;
+    }
 
     public String getNombre() {
         return nombre;
