@@ -12,24 +12,24 @@ import java.util.ArrayList;
  */
 public class Pelicula {
     private String nombre;
-    private String produccion;
+    private String estudio;
     private String director;
-    private int fechaEstreno;
+    private int anioEstreno;
     private double duracion;
     private ArrayList<Personaje> listaPersonajes;
 
-    public Pelicula(String nombre, String produccion, String director, int fechaEstreno, double duracion) {
+    public Pelicula(String nombre, String estudio, String director, int fechaEstreno, double duracion) {
         this.nombre = nombre;
-        this.produccion = produccion;
+        this.estudio = estudio;
         this.director = director;
-        this.fechaEstreno = fechaEstreno;
+        this.anioEstreno = fechaEstreno;
         this.duracion = duracion;
         this.listaPersonajes = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return "Pelicula: \nnombre: " + nombre + "\nproduccion: " + produccion + "\ndirector:" + director + "\nfechaEstreno:" + fechaEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
+        return "Pelicula: \nnombre: " + nombre + "\nproduccion: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
     }
     
     
@@ -43,11 +43,11 @@ public class Pelicula {
     }
 
     public String getProduccion() {
-        return produccion;
+        return estudio;
     }
 
     public void setProduccion(String produccion) {
-        this.produccion = produccion;
+        this.estudio = produccion;
     }
 
     public String getDirector() {
@@ -58,12 +58,12 @@ public class Pelicula {
         this.director = director;
     }
 
-    public int getFechaEstreno() {
-        return fechaEstreno;
+    public int getAnioEstreno() {
+        return anioEstreno;
     }
 
-    public void setFechaEstreno(int fechaEstreno) {
-        this.fechaEstreno = fechaEstreno;
+    public void setAnioEstreno(int anioEstreno) {
+        this.anioEstreno = anioEstreno;
     }
 
     public double getDuracion() {
