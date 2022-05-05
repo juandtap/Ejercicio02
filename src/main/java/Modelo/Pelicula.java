@@ -29,7 +29,7 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula: \nnombre: " + nombre + "\nproduccion: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
+        return "Pelicula: \nnombre: " + nombre + "\nestudio: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
     }
     
     
@@ -42,11 +42,11 @@ public class Pelicula {
         this.nombre = nombre;
     }
 
-    public String getProduccion() {
+    public String getEstudio() {
         return estudio;
     }
 
-    public void setProduccion(String produccion) {
+    public void setEstudio(String produccion) {
         this.estudio = produccion;
     }
 
