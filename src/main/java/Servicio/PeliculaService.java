@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class PeliculaService implements IPelicula, IPersonaje{
     
-    final ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
+    private final ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
     
     @Override
     public Pelicula crearPelicula(Pelicula pelicula) {
@@ -28,8 +28,8 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Pelicula actualizarPelicula(Pelicula pelicula, int posicion) {
-        listaPeliculas.add(posicion, pelicula);
+    public Pelicula modificarPelicula(Pelicula pelicula, int posicion) {
+        listaPeliculas.set(posicion, pelicula);
         return pelicula;
     }
 
@@ -38,7 +38,7 @@ public class PeliculaService implements IPelicula, IPersonaje{
         return listaPeliculas.remove(posicion);
     }
     
-    // metodos Iperosnaje
+    // metodos Ipersonaje
 
     @Override
     public Personaje crearPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura) {
@@ -50,7 +50,7 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Personaje actualizarPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura, int posicion) {
+    public Personaje modificarPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura, int posicion) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

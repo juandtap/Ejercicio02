@@ -28,15 +28,17 @@ public class PeliculaControl {
         
     }
     
-    public Personaje crearPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura){
-       
-        Personaje personaje = new Personaje(nombre, genero, actor, edad, estatura);
+    public Pelicula modificarPelicula(int posicion, String nombre, String produccion, String director, double duracion, int fechaEstreno){
+        if (validarFechaEstreno(fechaEstreno)){
+            Pelicula pelicula = new Pelicula(nombre, director, director, fechaEstreno, duracion);
+            peliculaService.modificarPelicula(pelicula, posicion);
+            return pelicula;
+        }
         
-        peliculaService.crearPersonaje(pelicula, nombre, genero, actor, edad, estatura);
-        return personaje;
-       
-        
+        throw new IllegalArgumentException("El anio debe ser mayor  a 2000");
     }
+    
+    
     
     public ArrayList<Pelicula> listar(){
         return peliculaService.listarPeliculas();
