@@ -35,7 +35,7 @@ public class Pelicula {
     //muestra la antiguedad de la pelicula basado en el anio actual
     public String antiguedadPelicula(int anioActual){
         int antiguedad = anioActual - this.anioEstreno;
-        String antiguedadPelicula = "La pellicula "+getNombre()+ " tiene "+antiguedad+ "anios de antiguedad";
+        String antiguedadPelicula = "La pelicula "+getNombre()+ " tiene "+antiguedad+ " anios de antiguedad";
         return antiguedadPelicula;
     }
 

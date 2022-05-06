@@ -32,9 +32,9 @@ public class Personaje {
     
     // muestra si el personaje es alto o bajo en funcion de su estatura
     // altura > 1.8m alto, de lo contrario, bajo
-    public String personajeEsAlto(double estatura){
-        if (estatura >= 1.8){
-            return "el personaje es alto";
+    public String personajeEsAlto(){
+        if (this.estatura >= 1.8){
+            return "el personaje "+getNombre()+" es alto";
         } 
         return " el personaje "+getNombre()+" es de baja estatura";
     }

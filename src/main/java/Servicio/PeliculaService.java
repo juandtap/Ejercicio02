@@ -16,7 +16,7 @@ public class PeliculaService implements IPelicula, IPersonaje{
     
     private final ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
     
-    // Metodos IPelicula
+    // METODOS IPELICULA
     
     @Override
     public Pelicula crearPelicula(Pelicula pelicula) {
@@ -44,7 +44,7 @@ public class PeliculaService implements IPelicula, IPersonaje{
             }
         }
         
-        System.out.println("POSICION POR NOMBRE :---->>>>> "+posicion);
+        
         return  listaPeliculas.get(posicion);
     }
     
@@ -65,7 +65,7 @@ public class PeliculaService implements IPelicula, IPersonaje{
         return listaPeliculas.remove(posicion);
     }
     
-    // metodos Ipersonaje
+    // METODOS IPERSONAJE
 
     @Override
     public Personaje crearPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura) {
@@ -77,21 +77,42 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Personaje modificarPersonaje(Pelicula pelicula, int posicion, String nombre, String genero, String actor, int edad, double estatura) {
+    public Personaje modificarPersonaje(Pelicula pelicula, Personaje personaje, String nombre, String genero, String actor, int edad, double estatura) {
         Personaje nuevoPersonaje = new Personaje(nombre, genero, actor, edad, estatura);
         int posicionPelicula = listaPeliculas.indexOf(pelicula);
-        listaPeliculas.get(posicionPelicula).getListaPersonajes().set(posicion, nuevoPersonaje);
+        int posicionPersonaje = listaPeliculas.get(posicionPelicula).getListaPersonajes().indexOf(personaje);
+        listaPeliculas.get(posicionPelicula).getListaPersonajes().set(posicionPersonaje, nuevoPersonaje);
         return nuevoPersonaje;
     }
 
     @Override
-    public Personaje eliminarPersonaje(Pelicula pelicula, int posicionEliminar) {
+    public Personaje eliminarPersonaje(Pelicula pelicula, Personaje personaje) {
         int posicionPelicula = listaPeliculas.indexOf(pelicula);
-        return listaPeliculas.get(posicionPelicula).getListaPersonajes().remove(posicionEliminar);
+        int posicionPersonaje = listaPeliculas.get(posicionPelicula).getListaPersonajes().indexOf(personaje);
+        return listaPeliculas.get(posicionPelicula).getListaPersonajes().remove(posicionPersonaje);
+    }
+
+    @Override
+    public Personaje getPersonajeByName(Pelicula pelicula, String name) {
+        int posicionPersonaje = -1;
+        int posicionPelicula = listaPeliculas.indexOf(pelicula);
+        for (Personaje pers : listaPeliculas.get(posicionPelicula).getListaPersonajes()){
+            if(pers.getNombre().equalsIgnoreCase(name)){
+                posicionPersonaje = listaPeliculas.get(posicionPelicula).getListaPersonajes().indexOf(pers);
+            }
+        }
+        return listaPeliculas.get(posicionPelicula).getListaPersonajes().get(posicionPersonaje);
+    }
+
+    @Override
+    public Personaje getPersonajeByPosicion(Pelicula pelicula, int posicion) {
+        int posicioPelicula = listaPeliculas.indexOf(pelicula);
+        return listaPeliculas.get(posicioPelicula).getListaPersonajes().get(posicion);
+        
     }
 
     
-
+    
     
     
     

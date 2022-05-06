@@ -95,21 +95,29 @@ public class PeliculaControl {
         
     }
     
-    public Personaje modificarPersonaje(Pelicula pelicula, int posicion,String nombre, String genero, String actor, int edad, double estatura ){
+    public Personaje modificarPersonaje(Pelicula pelicula, Personaje personaje, String nombre, String genero, String actor, int edad, double estatura ){
         
         if (validarEdad(edad) && validarSoloTexto(genero)){
-            Personaje personaje = new Personaje(nombre, genero, actor, edad, estatura);
-            peliculaService.modificarPersonaje(pelicula, posicion, nombre, genero, actor, edad, estatura);
-            return personaje;
-        } else {
-            throw new IllegalArgumentException("la edad debe ser un valor positivo y el genero debe contener solo texto");
-        }
+            
+            return peliculaService.modificarPersonaje(pelicula, personaje, nombre, genero, actor, edad, estatura);
+        } 
+        
+        throw new IllegalArgumentException("la edad debe ser un valor positivo y el genero debe contener solo texto");
+        
     }
     
-    public Personaje eliminarPersonaje(Pelicula pelicula, int posicion){
-        return peliculaService.eliminarPersonaje(pelicula, posicion);
+    public Personaje eliminarPersonaje(Pelicula pelicula, Personaje personaje){
+        return peliculaService.eliminarPersonaje(pelicula, personaje);
     }
     
+    
+    public Personaje getPersonajeByPosicion(Pelicula pelicula, int posicion){
+        return peliculaService.getPersonajeByPosicion(pelicula, posicion);
+    }
+    
+    public Personaje getPersonajeByName(Pelicula pelicula, String name){
+        return peliculaService.getPersonajeByName(pelicula, name);
+    }
     
     // metodos privados clase Personaje
     //valida que no se ingresen valores negativos en "edad"
