@@ -38,23 +38,23 @@ public class PeliculaVista {
         
         // Modificar pelicula 2
         peliculaControl.modificarPelicula(peliculaControl.getPeliculaByName("El hobbit"), "El hobbit : Un viaje inesperado", "Warner Bros MGM ", "Peter Jackson ", 2.5, 2012);
-        System.out.println("modificacion pelicula 2\nPELICULAS: ");
+        System.out.println(">> Modificacion pelicula 2\nPELICULAS: ");
         System.out.println(peliculaControl.listar());
         
         // modificar personaje1 pelicula1
         peliculaControl.modificarPersonaje(peliculaControl.getPeliculaByPosicion(0), 0, "Batman", "hombre murcielago", "Christian Bale", 35, 1.9);
-        System.out.println("modificacion peronaje1 de pelicula1\nPELICULAS: ");
+        System.out.println(">> Modificacion peronaje1 de pelicula1\nPELICULAS: ");
         System.out.println(peliculaControl.listar());
        
         
         //eliminar pelicula 1
-        peliculaControl.eliminarPelicula(peliculaControl.getPeliculaByPosicion(0));
-        System.out.println("eliminar pelicula1\nPELICULAS: ");
+        peliculaControl.eliminarPelicula(peliculaControl.getPeliculaByName("Batman: Caballero de la noche"));
+        System.out.println(">> Eliminar pelicula1\nPELICULAS: ");
         System.out.println(peliculaControl.listar());
         
         // eliminar personaje2 pelicula 2
         peliculaControl.eliminarPersonaje(peliculaControl.getPeliculaByName("El hobbit : Un viaje inesperado"), 1);
-        System.out.println("eliminar personaje2 pelicula 2\nPELICULAS: ");
+        System.out.println(">> Eliminar personaje2 pelicula 2\nPELICULAS: ");
         System.out.println(peliculaControl.listar());
         
         //
