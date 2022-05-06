@@ -60,8 +60,9 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Personaje eliminarPeronaje(int posicion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Personaje eliminarPersonaje(Pelicula pelicula, int posicionEliminar) {
+        int posicionPelicula = listaPeliculas.indexOf(pelicula);
+        return listaPeliculas.get(posicionPelicula).getListaPersonajes().remove(posicionEliminar);
     }
 
     

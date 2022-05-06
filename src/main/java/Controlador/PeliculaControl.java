@@ -98,8 +98,8 @@ public class PeliculaControl {
         }
     }
     
-    public Personaje eliminarPersonaje(Pelicula pelicula){
-        
+    public Personaje eliminarPersonaje(Pelicula pelicula, int posicion){
+        return peliculaService.eliminarPersonaje(pelicula, posicion);
     }
     
     
