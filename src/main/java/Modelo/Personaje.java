@@ -27,7 +27,7 @@ public class Personaje {
     // Muestra la informacion de personaje 
     @Override
     public String toString() {
-        return "\n Personaje: \nnombre: " + nombre + "\ngenero" + genero + "\nactor: " + actor + "\nedad: " + edad + "\nestatura: " + estatura + "\n----------------\n";
+        return "\n Personaje: \nnombre: " + nombre + "\ngenero" + genero + "\nactor: " + actor + "\nedad: " + edad + "\nestatura: " + estatura + " m\n----------------\n";
     }
     
     // muestra si el personaje es alto o bajo en funcion de su estatura

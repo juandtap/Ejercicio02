@@ -6,7 +6,6 @@
 package Vista;
 
 import Controlador.PeliculaControl;
-import Controlador.PersonajeControl;
 import Modelo.Pelicula;
 
 
@@ -22,7 +21,7 @@ public class PeliculaVista {
     public static void main(String[] args) {
         
         PeliculaControl peliculaControl = new PeliculaControl();
-        Pelicula pelicula1 = peliculaControl.crearPelicula("Batman", "Warner Bros", "Cristofer Nolan", 2, 2008);
+        Pelicula pelicula1 = peliculaControl.crearPelicula("Batman", "Warner Bros", "Cristofer Nolan", 2, 1980);
         
         
         peliculaControl.crearPersonaje(pelicula1, "Bruce Wayne", "hombre", "Cristian Bale", 35, 1.9);

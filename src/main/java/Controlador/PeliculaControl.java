@@ -20,13 +20,13 @@ public class PeliculaControl {
     // Metodos para Pelicula
     
     public Pelicula crearPelicula(String nombre, String produccion, String director, double duracion, int fechaEstreno){
-        if (validarFechaEstreno(fechaEstreno)){
+        if (validarFechaEstreno(fechaEstreno) && validarDuracionPelicula(duracion)){
             Pelicula pelicula = new Pelicula(nombre, produccion, director, fechaEstreno, duracion);
             peliculaService.crearPelicula(pelicula);
             return pelicula;
         }
         
-        throw new IllegalArgumentException("El anio debe ser mayor  a 2000");
+        throw new IllegalArgumentException("El anio debe ser mayor a 1960 y la diracion de la pelicula mayor a 0.5 horas");
         
     }
     
@@ -37,7 +37,7 @@ public class PeliculaControl {
             return pelicula;
         }
         
-        throw new IllegalArgumentException("El anio debe ser mayor  a 2000");
+        throw new IllegalArgumentException("El anio debe ser mayor  a 1960");
     }
     
     
@@ -46,14 +46,25 @@ public class PeliculaControl {
         return peliculaService.listarPeliculas();
     }
     
-    // valida que solo se ingresen peliculas estrenadas despues de los 2000s
+    //Metodos privados clase Pelicula
+    // valida que solo se ingresen peliculas estrenadas despues de 1960
     private boolean validarFechaEstreno(int anio){
         var flag = true;
-        if (anio < 2000){
+        if (anio < 1960){
             flag = false;
         }
         return flag;
     }
+    
+    // Valida que la duracion de la pelicula sea mayor de 0.5 horas
+    private boolean validarDuracionPelicula(double num){
+        var flag = true;
+        if(num <= 0.5){
+            flag = false;
+        }
+        return flag;
+    }
+        
     
     // Metodos para Personaje
     
@@ -73,12 +84,22 @@ public class PeliculaControl {
 
         
     }
-    
-    //valida que no se ingresen valores negativos
+    // metodos privados clase Personaje
+    //valida que no se ingresen valores negativos en "edad"
     public boolean validarEdad(int edad){
         var flag = true;
         if(edad <= 0){
            flag = false;
+        }
+        return flag;
+    }
+    
+    //valida que sea solo texto para el atributo genero
+    public boolean validarSoloTexto(String texto){
+        var flag=true;
+        for (char t: texto.toCharArray ()){
+            if (!((t >= 'a' && t <= 'z') || (t >= 'A' && t <= 'Z') || t == ' '))
+                flag=false;
         }
         return flag;
     }

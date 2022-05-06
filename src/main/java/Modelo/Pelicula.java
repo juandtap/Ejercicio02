@@ -15,7 +15,7 @@ public class Pelicula {
     private String estudio;
     private String director;
     private int anioEstreno;
-    private double duracion;
+    private double duracionHoras;
     private ArrayList<Personaje> listaPersonajes;
 
     public Pelicula(String nombre, String estudio, String director, int anioEstreno, double duracion) {
@@ -23,13 +23,13 @@ public class Pelicula {
         this.estudio = estudio;
         this.director = director;
         this.anioEstreno = anioEstreno;
-        this.duracion = duracion;
+        this.duracionHoras = duracion;
         this.listaPersonajes = new ArrayList<>();
     }
     // Muestra la informacion de Pelicula
     @Override
     public String toString() {
-        return "\n Pelicula: \nnombre: " + nombre + "\nestudio: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
+        return "\n Pelicula: \nnombre: " + nombre + "\nestudio: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracionHoras + " horas \nLista de personajes: \n" + listaPersonajes;
     }
     
     //muestra la antiguedad de la pelicula basado en el anio actual
@@ -71,12 +71,12 @@ public class Pelicula {
         this.anioEstreno = anioEstreno;
     }
 
-    public double getDuracion() {
-        return duracion;
+    public double getDuracionHoras() {
+        return duracionHoras;
     }
 
-    public void setDuracion(double duracion) {
-        this.duracion = duracion;
+    public void setDuracionHoras(double duracionHoras) {
+        this.duracionHoras = duracionHoras;
     }
 
     public ArrayList<Personaje> getListaPersonajes() {
