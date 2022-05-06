@@ -29,7 +29,7 @@ public class Pelicula {
     // Muestra la informacion de Pelicula
     @Override
     public String toString() {
-        return "Pelicula: \nnombre: " + nombre + "\nestudio: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
+        return "\n Pelicula: \nnombre: " + nombre + "\nestudio: " + estudio + "\ndirector:" + director + "\nfechaEstreno:" + anioEstreno + "\nduracion:" + duracion + "\nLista de personajes: \n" + listaPersonajes;
     }
     
     //muestra la antiguedad de la pelicula basado en el anio actual

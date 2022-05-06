@@ -16,6 +16,8 @@ public class PeliculaService implements IPelicula, IPersonaje{
     
     private final ArrayList<Pelicula> listaPeliculas = new ArrayList<>();
     
+    // Metodos IPelicula
+    
     @Override
     public Pelicula crearPelicula(Pelicula pelicula) {
         listaPeliculas.add(pelicula);

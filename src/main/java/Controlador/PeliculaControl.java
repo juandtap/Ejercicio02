@@ -15,7 +15,9 @@ import java.util.ArrayList;
  */
 public class PeliculaControl {
     
-    PeliculaService peliculaService =  new PeliculaService();
+    final PeliculaService peliculaService =  new PeliculaService();
+    
+    // Metodos para Pelicula
     
     public Pelicula crearPelicula(String nombre, String produccion, String director, double duracion, int fechaEstreno){
         if (validarFechaEstreno(fechaEstreno)){
@@ -49,6 +51,34 @@ public class PeliculaControl {
         var flag = true;
         if (anio < 2000){
             flag = false;
+        }
+        return flag;
+    }
+    
+    // Metodos para Personaje
+    
+    
+    
+    public Personaje crearPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura){
+       
+        if (validarEdad(edad)){
+            Personaje personaje = new Personaje(nombre, genero, actor, edad, estatura);
+            peliculaService.crearPersonaje(pelicula, nombre, genero, actor, edad, estatura);
+            return personaje;
+        } else {
+            throw new IllegalArgumentException("la edad debe ser un valor positivo");
+        }
+        
+        
+
+        
+    }
+    
+    //valida que no se ingresen valores negativos
+    public boolean validarEdad(int edad){
+        var flag = true;
+        if(edad <= 0){
+           flag = false;
         }
         return flag;
     }
