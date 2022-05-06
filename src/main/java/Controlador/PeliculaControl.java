@@ -31,13 +31,18 @@ public class PeliculaControl {
     }
     
     public Pelicula modificarPelicula(int posicion, String nombre, String produccion, String director, double duracion, int fechaEstreno){
-        if (validarFechaEstreno(fechaEstreno)){
+        if (validarFechaEstreno(fechaEstreno) && validarDuracionPelicula(duracion)){
             Pelicula pelicula = new Pelicula(nombre, director, director, fechaEstreno, duracion);
             peliculaService.modificarPelicula(pelicula, posicion);
             return pelicula;
         }
         
-        throw new IllegalArgumentException("El anio debe ser mayor  a 1960");
+        throw new IllegalArgumentException("El anio debe ser mayor  a 1960 y la duracion de la pelicula mayor a 0.5 horas");
+    }
+    
+    public Pelicula eliminarPelicula(Pelicula pelicula){
+            int posicion = peliculaService.listarPeliculas().indexOf(pelicula);
+            return peliculaService.eliminarPelicula(posicion);
     }
     
     
@@ -80,10 +85,24 @@ public class PeliculaControl {
             throw new IllegalArgumentException("la edad debe ser un valor positivo y el genero debe contener solo texto");
         }
         
+    }
+    
+    public Personaje modificarPersonaje(Pelicula pelicula, int posicion,String nombre, String genero, String actor, int edad, double estatura ){
         
-
+        if (validarEdad(edad) && validarSoloTexto(genero)){
+            Personaje personaje = new Personaje(nombre, genero, actor, edad, estatura);
+            peliculaService.modificarPersonaje(pelicula, posicion, nombre, genero, actor, edad, estatura);
+            return personaje;
+        } else {
+            throw new IllegalArgumentException("la edad debe ser un valor positivo y el genero debe contener solo texto");
+        }
+    }
+    
+    public Personaje eliminarPersonaje(Pelicula pelicula){
         
     }
+    
+    
     // metodos privados clase Personaje
     //valida que no se ingresen valores negativos en "edad"
     public boolean validarEdad(int edad){

@@ -30,9 +30,9 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Pelicula modificarPelicula(Pelicula pelicula, int posicion) {
-        listaPeliculas.set(posicion, pelicula);
-        return pelicula;
+    public Pelicula modificarPelicula(Pelicula nuevapelicula, int posicion) {
+        listaPeliculas.set(posicion, nuevapelicula);
+        return nuevapelicula;
     }
 
     @Override
@@ -52,8 +52,11 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Personaje modificarPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura, int posicion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Personaje modificarPersonaje(Pelicula pelicula, int posicion, String nombre, String genero, String actor, int edad, double estatura) {
+        Personaje nuevoPersonaje = new Personaje(nombre, genero, actor, edad, estatura);
+        int posicionPelicula = listaPeliculas.indexOf(pelicula);
+        listaPeliculas.get(posicionPelicula).getListaPersonajes().set(posicion, nuevoPersonaje);
+        return nuevoPersonaje;
     }
 
     @Override
