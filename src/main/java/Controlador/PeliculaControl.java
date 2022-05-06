@@ -72,12 +72,12 @@ public class PeliculaControl {
     
     public Personaje crearPersonaje(Pelicula pelicula, String nombre, String genero, String actor, int edad, double estatura){
        
-        if (validarEdad(edad)){
+        if (validarEdad(edad) && validarSoloTexto(genero)){
             Personaje personaje = new Personaje(nombre, genero, actor, edad, estatura);
             peliculaService.crearPersonaje(pelicula, nombre, genero, actor, edad, estatura);
             return personaje;
         } else {
-            throw new IllegalArgumentException("la edad debe ser un valor positivo");
+            throw new IllegalArgumentException("la edad debe ser un valor positivo y el genero debe contener solo texto");
         }
         
         
