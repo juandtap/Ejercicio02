@@ -30,9 +30,9 @@ public class PeliculaControl {
         
     }
     
-    public Pelicula modificarPelicula(int posicion, String nombre, String produccion, String director, double duracion, int fechaEstreno){
+    public Pelicula modificarPelicula(int posicion, String nombre, String estudio, String director, double duracion, int fechaEstreno){
         if (validarFechaEstreno(fechaEstreno) && validarDuracionPelicula(duracion)){
-            Pelicula pelicula = new Pelicula(nombre, director, director, fechaEstreno, duracion);
+            Pelicula pelicula = new Pelicula(nombre, estudio, director, fechaEstreno, duracion);
             peliculaService.modificarPelicula(pelicula, posicion);
             return pelicula;
         }

@@ -31,6 +31,8 @@ public class PeliculaService implements IPelicula, IPersonaje{
 
     @Override
     public Pelicula modificarPelicula(Pelicula nuevapelicula, int posicion) {
+        // mantener personajes
+        nuevapelicula.setListaPersonajes(listaPeliculas.get(posicion).getListaPersonajes());
         listaPeliculas.set(posicion, nuevapelicula);
         return nuevapelicula;
     }
