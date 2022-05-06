@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public interface IPelicula {
     public Pelicula crearPelicula(Pelicula pelicula);
     public ArrayList<Pelicula> listarPeliculas();
-    public Pelicula modificarPelicula(Pelicula pelicula, int posicion);
+    public Pelicula getPeliculaByPosicion(int posicionPelicula);
+    public Pelicula getPeliculaByName(String name);
+    public Pelicula modificarPelicula(Pelicula nuevaPelicula, Pelicula pelicula);
     public Pelicula eliminarPelicula(int posicion);
 }

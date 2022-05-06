@@ -30,11 +30,34 @@ public class PeliculaService implements IPelicula, IPersonaje{
     }
 
     @Override
-    public Pelicula modificarPelicula(Pelicula nuevapelicula, int posicion) {
+    public Pelicula getPeliculaByPosicion(int posicionPelicula) {
+        return listaPeliculas.get(posicionPelicula);
+    }
+
+    @Override
+    public Pelicula getPeliculaByName(String name) {
+        int posicion=-1;
+        for (Pelicula peli : listaPeliculas){
+            if(peli.getNombre().equalsIgnoreCase(name)){
+                posicion = listaPeliculas.indexOf(peli);
+                break;
+            }
+        }
+        
+        System.out.println("POSICION POR NOMBRE :---->>>>> "+posicion);
+        return  listaPeliculas.get(posicion);
+    }
+    
+    
+    
+    
+    @Override
+    public Pelicula modificarPelicula(Pelicula nuevaPelicula, Pelicula pelicula) {
         // mantener personajes
-        nuevapelicula.setListaPersonajes(listaPeliculas.get(posicion).getListaPersonajes());
-        listaPeliculas.set(posicion, nuevapelicula);
-        return nuevapelicula;
+        int posicion = listaPeliculas.indexOf(pelicula);
+        nuevaPelicula.setListaPersonajes(listaPeliculas.get(posicion).getListaPersonajes());
+        listaPeliculas.set(posicion, nuevaPelicula);
+        return nuevaPelicula;
     }
 
     @Override

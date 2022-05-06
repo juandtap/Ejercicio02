@@ -30,11 +30,11 @@ public class PeliculaControl {
         
     }
     
-    public Pelicula modificarPelicula(int posicion, String nombre, String estudio, String director, double duracion, int fechaEstreno){
+    public Pelicula modificarPelicula(Pelicula pelicula, String nombre, String estudio, String director, double duracion, int fechaEstreno){
         if (validarFechaEstreno(fechaEstreno) && validarDuracionPelicula(duracion)){
-            Pelicula pelicula = new Pelicula(nombre, estudio, director, fechaEstreno, duracion);
-            peliculaService.modificarPelicula(pelicula, posicion);
-            return pelicula;
+            Pelicula nuevapelicula = new Pelicula(nombre, estudio, director, fechaEstreno, duracion);
+            peliculaService.modificarPelicula(nuevapelicula, pelicula);
+            return nuevapelicula;
         }
         
         throw new IllegalArgumentException("El anio debe ser mayor  a 1960 y la duracion de la pelicula mayor a 0.5 horas");
@@ -49,6 +49,14 @@ public class PeliculaControl {
     
     public ArrayList<Pelicula> listar(){
         return peliculaService.listarPeliculas();
+    }
+    
+    public Pelicula getPeliculaByPosicion(int posicionPelicula){
+        return peliculaService.getPeliculaByPosicion(posicionPelicula);
+    }
+    
+    public Pelicula getPeliculaByName(String nombrePelicula){
+        return peliculaService.getPeliculaByName(nombrePelicula);
     }
     
     //Metodos privados clase Pelicula
